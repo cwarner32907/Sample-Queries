@@ -1,0 +1,264 @@
+Use Report
+Declare @search varchar (2), @bu1 varchar (2) , @bu2 varchar (2)
+
+Set @search = '30'
+Set @bu1 = 'FM'
+Set @bu2 = 'MC'
+
+--A . /* Create Table of all "unclean" codes */
+Declare @uncleanex Table (ex varchar(4));
+Insert Into @uncleanex (ex)
+Values
+('EX26') 									
+,('EX4G') 									
+,('EX55') 									
+,('EX6K') 									
+,('EX6M') 									
+,('EX6N') 									
+,('EX6P') 									
+,('EX6S') 									
+,('EX6W') 									
+,('EX6X') 									
+,('EX6Y') 									
+,('EX6Z') 									
+,('EX71') 									
+,('EX7T') 									
+,('EX84') 									
+,('EX90') 									
+,('EX9N') 									
+,('EXBL') 									
+,('EXC0') 									
+,('EXC1') 									
+,('EXC9') 									
+,('EXDZ') 									
+,('EXR7') 									
+,('EXRG') 									
+,('EXS9') 									
+,('EXTO') 									
+,('EXTP') 									
+,('EXVP')									
+,('EX0B')									
+,('EX14')									
+,('EX23')									
+,('EX27')									
+,('EX28')									
+,('EX2A')									
+,('EX2B')									
+,('EX2C')									
+,('EX2D')									
+,('EX2E')									
+,('EX2Y')									
+,('EX30')									
+,('EX3A')									
+,('EX3B')									
+,('EX3C')									
+,('EX3D')									
+,('EX50')									
+,('EX52')									
+,('EX57')									
+,('EX5A')									
+,('EX5O')									
+,('EX5P')									
+,('EX5Y')									
+,('EX64')									
+,('EX6O')									
+,('EX81')									
+,('EX86')									
+,('EX9F')									
+,('EX9G')									
+,('EX9H')									
+,('EX9V')									
+,('EX9X')									
+,('EX9Z')									
+,('EXAD')									
+,('EXAR')									
+,('EXAW')									
+,('EXBI')									
+,('EXBJ')									
+,('EXBM')									
+,('EXCB')									
+,('EXCG')									
+,('EXCX')									
+,('EXDJ')									
+,('EXH7')									
+,('EXH8')									
+,('EXH9')									
+,('EXHB')									
+,('EXII')									
+,('EXIJ')									
+,('EXIL')									
+,('EXIM')									
+,('EXKB')									
+,('EXLK')									
+,('EXLS')									
+,('EXMI')									
+,('EXMK')									
+,('EXNO')									
+,('EXNX')									
+,('EXOD')									
+,('EXOP')									
+,('EXOX')									
+,('EXSM')									
+,('EXSV')									
+,('EXT2')									
+,('EXTD')									
+,('EXTF')									
+,('EXUN')									
+,('EXUX')									
+,('EXW5')									
+,('EXW6')									
+,('EXW7')									
+,('EXW8')									
+,('EXW9')									
+,('EXWA')									
+,('EXWB')									
+,('EXWD')									
+,('EXWJ')									
+,('EXWT')									
+,('EXWV')									
+,('EXWY')									
+,('EXWZ')									
+,('EXXD')									
+,('EXXF')									
+,('EXXI')									
+,('EXXJ')									
+,('EXXL')									
+,('EXXM')									
+,('EXXR')									
+,('EXZY')									
+,('EX58')									
+,('EX1L')									
+,('EX24')									
+,('EX26')									
+,('EX2T')									
+,('EX4G')									
+,('EX51')									
+,('EX55')									
+,('EX5E')									
+,('EX5F')									
+,('EX5G')									
+,('EX5H')									
+,('EX5I')									
+,('EX5L')									
+,('EX60')									
+,('EX61')									
+,('EX62')									
+,('EX63')									
+,('EX65')									
+,('EX66')									
+,('EX67')									
+,('EX68')									
+,('EX69')									
+,('EX6E')									
+,('EX6F')									
+,('EX6K')									
+,('EX6M')									
+,('EX6N')									
+,('EX6P')									
+,('EX6S')									
+,('EX6T')									
+,('EX6W')									
+,('EX6X')									
+,('EX6Y')									
+,('EX6Z')									
+,('EX70')									
+,('EX71')									
+,('EX72')									
+,('EX74')									
+,('EX75')									
+,('EX78')									
+,('EX7T')									
+,('EX84')									
+,('EX90')									
+,('EX9N')									
+,('EXAF')									
+,('EXBH')									
+,('EXBL')									
+,('EXC0')									
+,('EXC1')									
+,('EXC5')									
+,('EXC9')									
+,('EXD4')									
+,('EXDD')									
+,('EXDX')									
+,('EXDZ')									
+,('EXEB')									
+,('EXFT')									
+,('EXIV')									
+,('EXK1')									
+,('EXK2')									
+,('EXL8')									
+,('EXLA')									
+,('EXLF')									
+,('EXLG')									
+,('EXLR')									
+,('EXMR')									
+,('EXNZ')									
+,('EXOM')									
+,('EXPM')									
+,('EXPO')									
+,('EXPW')									
+,('EXR7')									
+,('EXRG')									
+,('EXS9')									
+,('EXSI')									
+,('EXTO')									
+,('EXTP')									
+,('EXVP')									
+,('EXY0')									
+,('EXYN')									
+,('EXYO')	
+
+
+--B /* Pull data and transform within cte, rather than importing into temp table "finalset" to reduce redundency */
+; with pending_fm_mc_claims as (
+
+Select Distinct s.claim_nbr,
+Cast(Convert(Date,s.c_rcvd_date,101) as Varchar) c_rcvd_date,
+Cast(Convert(Date,s.c_paid_date,101) as Varchar) c_paid_date, --avoid negative dates as data will be imported into excel via datamodel
+Case 
+	When Max(Right(S.Serv_nbr,2)) Over (Partition by s.claim_nbr) > '00' then '1' --Examining by claim max service line to identify adjustments
+	Else '0' end as adj_status,
+datediff(d,s.c_rcvd_date,getdate()) Age,
+Case
+	When Datename( Weekday, getdate()) = 'Monday'    then datediff(d,s.c_rcvd_date,getdate()) + 6
+	When Datename( Weekday, getdate())= 'Tuesday'    then datediff(d,s.c_rcvd_date,getdate()) + 5
+	When Datename( Weekday, getdate()) = 'Wednesday' then datediff(d,s.c_rcvd_date,getdate()) + 4
+	When Datename( Weekday, getdate()) ='Thursday'   then datediff(d,s.c_rcvd_date,getdate()) + 3
+	When Datename( Weekday, getdate()) = 'Friday'    then datediff(d,s.c_rcvd_date,getdate()) + 2
+	end as Age_on_payable, --logic added to  add days based on weekday, payable run occurs each Sunday
+Case 
+	when DATEDIFF(d,s.c_rcvd_date,getdate()) <= '30' then ' < 30 days'
+	When Datediff(d,s.c_rcvd_date,getdate()) <= '60' then '<60 days'
+	When Datediff(d,s.c_rcvd_date,getdate()) >'60' then 'other'
+	End as timeliness, --Big bucket Timeliness categories
+em.Par_NonPar,
+s.lob,
+s.ex1,
+s.ex1 +' -' + cd.description ex_with_description
+
+from service_x s
+
+inner join code_detail cd on 'EX' + s.ex1 = cd.code_nbr
+
+inner join experiencemodel em on s.claim_nbr = em.claim_nbr 
+where status_x = @search and s.Business_unit in (@bu1,@bu2) --Looks for unpaid status matching business unit logic
+
+group by s.claim_nbr, s.c_rcvd_date,s.c_paid_date,s.lob,s.ex1, cd.description, em.par_nonpar, s.serv_nbr)
+
+
+
+--C. /* Pull final result set,add additional logic for Timeliness Qc to ensure any claims >23 days are prioritized to avoid going over SLA */
+
+select pc.* , case when pc.Age_on_payable >= '23' then 'claim needs to be worked' else ' 'end as Timeliness_qc ,
+Case
+	when Not Exists (Select * from @uncleanex x where x.ex ='EX'+ pc.ex1 ) or (dc.description2 like '%unclean%') then 'O' else '1'
+	end as clean_indicator
+/* added to pull unclean codes from created table, existing code table with "unclean" descriptions */
+
+from pending_fm_mc_claims pc
+Left outer join dbo.CODE_DETAIL dc on 'EX'+ pc.ex1 = dc.code_nbr and (dc.description2 like '%unclean%' )
+
+
+
+order by age desc
